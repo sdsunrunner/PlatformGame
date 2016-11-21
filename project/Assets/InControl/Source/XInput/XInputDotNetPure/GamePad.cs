@@ -8,7 +8,7 @@ namespace XInputDotNetPure
 {
 	class Imports
 	{
-		internal const string DLLName = "XInputInterface";
+		internal const string DLLName = "XInputInterface64";
 
 		[DllImport( DLLName )]
 		public static extern uint XInputGamePadGetState( uint playerIndex, IntPtr state );
