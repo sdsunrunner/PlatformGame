@@ -249,22 +249,22 @@ namespace InControl
 		}
 
 
-		void OnDrawGizmos()
-		{
-			Gizmos.color = Color.blue;
-			var lz = new Vector2( -3.0f, -1.0f );
-			var lp = lz + (InputManager.ActiveDevice.Direction.Vector * 2.0f);
-			Gizmos.DrawSphere( lz, 0.1f );
-			Gizmos.DrawLine( lz, lp );
-			Gizmos.DrawSphere( lp, 1.0f );
+        //void OnDrawGizmos()
+        //{
+        //    Gizmos.color = Color.blue;
+        //    var lz = new Vector2( -3.0f, -1.0f );
+        //    var lp = lz + (InputManager.ActiveDevice.Direction.Vector * 2.0f);
+        //    Gizmos.DrawSphere( lz, 0.1f );
+        //    Gizmos.DrawLine( lz, lp );
+        //    Gizmos.DrawSphere( lp, 1.0f );
 
-			Gizmos.color = Color.red;
-			var rz = new Vector2( +3.0f, -1.0f );
-			var rp = rz + (InputManager.ActiveDevice.RightStick.Vector * 2.0f);
-			Gizmos.DrawSphere( rz, 0.1f );
-			Gizmos.DrawLine( rz, rp );
-			Gizmos.DrawSphere( rp, 1.0f );
-		}
+        //    Gizmos.color = Color.red;
+        //    var rz = new Vector2( +3.0f, -1.0f );
+        //    var rp = rz + (InputManager.ActiveDevice.RightStick.Vector * 2.0f);
+        //    Gizmos.DrawSphere( rz, 0.1f );
+        //    Gizmos.DrawLine( rz, rp );
+        //    Gizmos.DrawSphere( rp, 1.0f );
+        //}
 	}
 }
 

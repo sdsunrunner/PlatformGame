@@ -13,7 +13,7 @@ namespace XInputDotNetPure
 		[DllImport( DLLName )]
 		public static extern uint XInputGamePadGetState( uint playerIndex, IntPtr state );
 		[DllImport( DLLName )]
-		public static extern void XInputGamePadSetState( uint playerIndex, float leftMotor, float rightMotor );
+		public static extern void XInputGamePadSetState( uint playerIndex, float leftMotor, float rightMotor );   
 	}
 
 
