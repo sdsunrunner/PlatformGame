@@ -71,8 +71,7 @@ public class InitApp : MonoBehaviour
         mCommandFacade.addCommand(CommandInteracType.STARTAPP_COMMAND, typeof(StartAppMacroCommand));
         //mCommandFacade.addCommand(CommandInteracType.STARTAPP_ASYNC_COMMAND, StartAppAnsyCommand);
         this.notify(CommandInteracType.STARTAPP_COMMAND);
-        state = EState.eInitGameSetting;
-       
+        state = EState.eInitGameSetting;       
     }
     void InitGameSetting()
     {
@@ -86,6 +85,8 @@ public class InitApp : MonoBehaviour
     void InitTableConfig()
     {
         Debug.LogError("InitTableConfig");
+        ClientTableDataManager.Reset();
+        ClientTableDataManager.Instance.Init();
     }
 
     private void notify(string type, object data = null)
