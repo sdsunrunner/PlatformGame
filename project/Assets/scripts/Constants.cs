@@ -9,4 +9,6 @@ public class Constants
     public static bool LOG_MISSION_ENABLE = true;// NEED to change for Distribution
     public static bool LOG_ENABLE = true;// NEED to change for Distribution
     public static bool LOG_TOUCH_ENABLE = true;// NEED to change for Distribution
+
+    public static bool JOYSTICK_INPUT_DEBUF = true;// NEED to change for Distribution
 }

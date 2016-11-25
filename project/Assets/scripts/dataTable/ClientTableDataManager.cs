@@ -5,23 +5,23 @@ using System.Text;
 
 public class ClientTableDataManager
 {
-    static ClientTableDataManager s_pInstance = null;
+    static ClientTableDataManager mInstance = null;
     public static ClientTableDataManager Instance
     {
         get
         {
-            if (s_pInstance == null)
+            if (mInstance == null)
             {
-                s_pInstance = new ClientTableDataManager();
+                mInstance = new ClientTableDataManager();
             }
-            return s_pInstance;
+            return mInstance;
         }
     }
 
     public static void Reset()
     {
-        s_pInstance = null;
-        s_pInstance = new ClientTableDataManager();
+        mInstance = null;
+        mInstance = new ClientTableDataManager();
     }
     public void Init()
     { 

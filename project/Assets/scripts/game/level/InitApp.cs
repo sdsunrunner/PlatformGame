@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class InitApp : MonoBehaviour 
 {
     public enum EState
@@ -9,25 +9,41 @@ public class InitApp : MonoBehaviour
         eRegisNotification,
         eInitGameSetting,
         eInitTableConfig,
+        eStart,
+        eGo,
+        eEnd,
     }
 
     private EState mCurState = EState.eNone;
     private EState mPreState = EState.eNone;
 
-    private float mWaitStartTime;
-    private const float WAIT_TIME_AND_START = 1f;
+    private float mStateTimer;
+    private const float WAIT_TIME_AND_START = 1.5f;
     private long mStartTime;
-	
+
+    private ScreenInitLoading mLoadingHandler;
 
     private AppFacade mCommandFacade = null;    
 	void Start () 
     {
         Debug.LogError("start init app");
         state = EState.eRegisNotification;
+
+        GameObject ui_parent = GameObject.Find("UI");
+        MenuMrg.instance.SetTransform(ui_parent.transform);
+        mLoadingHandler = MenuMrg.instance.CreateMenu<ScreenInitLoading>();       
+        mLoadingHandler.ShowScreen();       
 	}
     void Update()
     {
-
+        switch (mCurState)
+        {
+            case EState.eStart:
+                mStateTimer += Time.deltaTime;
+                if (mStateTimer > WAIT_TIME_AND_START)
+                    state = EState.eGo;
+                break;
+        }
     }
 
     public EState state
@@ -37,6 +53,7 @@ public class InitApp : MonoBehaviour
     }
     private void _OnStateChange(EState _state)
     {
+        mStateTimer = 0.0f;
         if (_state != mCurState)
         {
             _StateExit(_state);
@@ -57,6 +74,9 @@ public class InitApp : MonoBehaviour
                 break;
             case EState.eInitTableConfig:
                 InitTableConfig();
+                break;
+            case EState.eGo:
+                StartGame();
                 break;
         }
     }
@@ -87,6 +107,15 @@ public class InitApp : MonoBehaviour
         Debug.LogError("InitTableConfig");
         ClientTableDataManager.Reset();
         ClientTableDataManager.Instance.Init();
+        state = EState.eStart;
+    }
+
+    void StartGame()
+    {
+        Debug.LogError("StartGame");
+        state = EState.eEnd;
+        LevelManager.Instance.LoadLevelAsync(Level.Opening);
+        SceneManager.LoadScene(LevelManager.Instance.GetLevelName(LevelManager.Instance.GetCurLevel()));
     }
 
     private void notify(string type, object data = null)

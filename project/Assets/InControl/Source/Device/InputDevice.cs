@@ -290,7 +290,8 @@ namespace InControl
 		public InputControl LeftStickButton { get { return GetControl( InputControlType.LeftStickButton ); } }
 		public InputControl RightStickButton { get { return GetControl( InputControlType.RightStickButton ); } }
 
-
+        public InputControl Back { get { return GetControl(InputControlType.Back); } }
+        public InputControl Start { get { return GetControl(InputControlType.Start); } }
 		public TwoAxisInputControl Direction
 		{
 			get

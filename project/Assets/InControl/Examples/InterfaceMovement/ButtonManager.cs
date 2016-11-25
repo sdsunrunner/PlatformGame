@@ -19,7 +19,7 @@ namespace InterfaceMovement
 
 
 		void Update()
-		{
+		{           
 			// Use last device which provided input.
 			var inputDevice = InputManager.ActiveDevice;
 			filteredDirection.Filter( inputDevice.Direction, Time.deltaTime );
@@ -50,6 +50,8 @@ namespace InterfaceMovement
 			{
 				MoveFocusTo( focusedButton.right );
 			}
+
+
 		}
 		
 		

@@ -7,7 +7,8 @@ public class StartAppMacroCommand : MacroCommand
     {
         Debug.LogError("----StartAppMacroCommand");
         //注册命令
-        addSubCommand(typeof(StartApplicationCommand));
-    }
+        addSubCommand(typeof(StartApplicationCommand));      
+    }   
+
 }
 
