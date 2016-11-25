@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: fd9d9d8101752464597b15271505e6b5
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: in_air_punch_0
+    21300002: in_air_punch_1
+    21300004: in_air_punch_2
+    21300006: in_air_punch_3
+    21300008: in_air_punch_4
+    21300010: in_air_punch_5
+    21300012: in_air_punch_6
+    21300014: in_air_punch_7
+    21300016: in_air_punch_8
+    21300018: in_air_punch_9
+    21300020: in_air_punch_10
+    21300022: in_air_punch_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: in_air_punch_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 73.5}
+        - {x: -29, y: 46.5}
+        - {x: -29, y: -58.5}
+        - {x: -11, y: -73.5}
+        - {x: -7, y: -75.5}
+        - {x: 33, y: -75.5}
+        - {x: 33, y: 64.5}
+        - {x: 13, y: 73.5}
+    - name: in_air_punch_1
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.1676865, y: 72.5}
+        - {x: -23.832314, y: 72.5}
+        - {x: -26.832314, y: 71.5}
+        - {x: -26.832314, y: -44.5}
+        - {x: -16.832314, y: -73.5}
+        - {x: 29.167686, y: -73.5}
+        - {x: 37.167686, y: -70.5}
+        - {x: 37.167686, y: -2.5}
+        - {x: 25.167686, y: 63.5}
+    - name: in_air_punch_2
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.664627, y: -67.5}
+        - {x: -19.664627, y: -69.5}
+        - {x: 39.335373, y: -69.5}
+        - {x: 39.335373, y: 8.5}
+        - {x: 24.335373, y: 61.5}
+        - {x: 4.335373, y: 72.5}
+        - {x: -12.664627, y: 72.5}
+        - {x: -24.664627, y: 58.5}
+    - name: in_air_punch_3
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.503052, y: 71.5}
+        - {x: -18.496948, y: 71.5}
+        - {x: -22.496948, y: 68.5}
+        - {x: -22.496948, y: -66.5}
+        - {x: 37.50305, y: -66.5}
+        - {x: 42.50305, y: -55.5}
+        - {x: 42.50305, y: -24.5}
+        - {x: 25.503052, y: 65.5}
+    - name: in_air_punch_4
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.329254, y: 71.5}
+        - {x: -27.329254, y: -52.5}
+        - {x: -12.329254, y: -65.5}
+        - {x: 33.670746, y: -65.5}
+        - {x: 37.670746, y: -64.5}
+        - {x: 43.670746, y: -62.5}
+        - {x: 43.670746, y: 34.5}
+        - {x: 31.670746, y: 71.5}
+    - name: in_air_punch_5
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.338409, y: 71.5}
+        - {x: -18.66159, y: 71.5}
+        - {x: -36.66159, y: 53.5}
+        - {x: -36.66159, y: -48.5}
+        - {x: -6.6615906, y: -64.5}
+        - {x: 32.33841, y: -64.5}
+        - {x: 44.33841, y: -62.5}
+        - {x: 44.33841, y: 36.5}
+        - {x: 21.33841, y: 68.5}
+    - name: in_air_punch_6
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.993896, y: 70.5}
+        - {x: -42.993896, y: 69.5}
+        - {x: -42.993896, y: -40.5}
+        - {x: -30.993896, y: -62.5}
+        - {x: 43.006104, y: -62.5}
+        - {x: 43.006104, y: 46.5}
+        - {x: 18.006104, y: 70.5}
+    - name: in_air_punch_7
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41.173767, y: -51.5}
+        - {x: 43.173767, y: -50.5}
+        - {x: 43.173767, y: 36.5}
+        - {x: 36.173767, y: 70.5}
+        - {x: -20.826233, y: 70.5}
+        - {x: -32.826233, y: 51.5}
+        - {x: -42.826233, y: 33.5}
+        - {x: -42.826233, y: 14.5}
+        - {x: -13.826233, y: 14.5}
+        - {x: -23.826233, y: -23.5}
+        - {x: -2.826233, y: -63.5}
+        - {x: 12.173767, y: -63.5}
+        - {x: 22.173767, y: -56.5}
+        - {x: 22.173767, y: -50.5}
+        - {x: 33.173767, y: -51.5}
+      - - {x: -42.826233, y: -35.5}
+        - {x: -39.826233, y: -34.5}
+        - {x: -39.826233, y: -30.5}
+        - {x: -41.826233, y: -28.5}
+        - {x: -42.826233, y: -28.5}
+    - name: in_air_punch_8
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41.34149, y: -56.5}
+        - {x: 43.34149, y: -49.5}
+        - {x: 43.34149, y: -17.5}
+        - {x: 41.34149, y: -7.5}
+        - {x: 23.341492, y: 68.5}
+        - {x: 6.3414917, y: 71.5}
+        - {x: -11.658508, y: 71.5}
+        - {x: -40.65851, y: 46.5}
+        - {x: -40.65851, y: -59.5}
+        - {x: -7.6585083, y: -65.5}
+        - {x: 5.3414917, y: -65.5}
+        - {x: 14.341492, y: -62.5}
+        - {x: 19.341492, y: -58.5}
+        - {x: 19.341492, y: -52.5}
+        - {x: 31.341492, y: -59.5}
+      - - {x: -42.65851, y: -38.5}
+        - {x: -39.65851, y: -37.5}
+        - {x: -39.65851, y: -32.5}
+        - {x: -41.65851, y: -30.5}
+        - {x: -42.65851, y: -30.5}
+    - name: in_air_punch_9
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.490845, y: 71.5}
+        - {x: -23.490845, y: 66.5}
+        - {x: -36.490845, y: 34.5}
+        - {x: -36.490845, y: -18.5}
+        - {x: -5.4908447, y: -66.5}
+        - {x: 19.509155, y: -66.5}
+        - {x: 43.509155, y: -61.5}
+        - {x: 43.509155, y: 31.5}
+        - {x: 24.509155, y: 71.5}
+    - name: in_air_punch_10
+      rect:
+        serializedVersion: 2
+        x: 1850
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32.32318, y: 45.5}
+        - {x: -32.32318, y: -27.5}
+        - {x: -18.323181, y: -68.5}
+        - {x: 40.67682, y: -68.5}
+        - {x: 41.67682, y: -67.5}
+        - {x: 41.67682, y: -13.5}
+        - {x: 25.676819, y: 63.5}
+        - {x: 5.676819, y: 72.5}
+        - {x: -14.323181, y: 72.5}
+        - {x: -22.323181, y: 68.5}
+    - name: in_air_punch_11
+      rect:
+        serializedVersion: 2
+        x: 2035
+        y: 0
+        width: 185
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.344543, y: -53.5}
+        - {x: 20.344543, y: -40.5}
+        - {x: 26.344543, y: -11.5}
+        - {x: 27.344543, y: 6.5}
+        - {x: 27.344543, y: 52.5}
+        - {x: 13.344543, y: 72.5}
+        - {x: -19.655457, y: 72.5}
+        - {x: -26.655457, y: 51.5}
+        - {x: -26.655457, y: -47.5}
+        - {x: -6.6554565, y: -72.5}
+        - {x: 32.344543, y: -72.5}
+        - {x: 39.344543, y: -61.5}
+        - {x: 39.344543, y: -57.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

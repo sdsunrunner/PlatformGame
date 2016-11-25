@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 8bd2c25e7f02ffe44b2edd591ae23a29
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: stand_0
+    21300002: stand_1
+    21300004: stand_2
+    21300006: stand_3
+    21300008: stand_4
+    21300010: stand_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: stand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: 39}
+        - {x: -43.5, y: 17}
+        - {x: -43.5, y: -26}
+        - {x: -30.5, y: -40}
+        - {x: 51.5, y: -40}
+        - {x: 51.5, y: 33}
+        - {x: 34.5, y: 39}
+    - name: stand_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.33333, y: 40}
+        - {x: -43.33333, y: 18}
+        - {x: -43.33333, y: -16}
+        - {x: -35.33333, y: -35}
+        - {x: -17.333328, y: -40}
+        - {x: 33.66667, y: -40}
+        - {x: 52.66667, y: -25}
+        - {x: 52.66667, y: 34}
+        - {x: 31.666672, y: 40}
+    - name: stand_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.833344, y: 40}
+        - {x: -24.166656, y: 40}
+        - {x: -44.166656, y: 18}
+        - {x: -44.166656, y: -21}
+        - {x: -33.166656, y: -38}
+        - {x: -21.166656, y: -40}
+        - {x: 30.833344, y: -40}
+        - {x: 49.833344, y: -25}
+        - {x: 52.833344, y: -18}
+        - {x: 52.833344, y: 22}
+    - name: stand_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.5, y: 40}
+        - {x: -42.5, y: 25}
+        - {x: -42.5, y: -31}
+        - {x: -21.5, y: -40}
+        - {x: 24.5, y: -40}
+        - {x: 42.5, y: -34}
+        - {x: 51.5, y: -24}
+        - {x: 51.5, y: 17}
+        - {x: 45.5, y: 40}
+    - name: stand_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.333313, y: 40}
+        - {x: -42.333313, y: 31}
+        - {x: -42.333313, y: -28}
+        - {x: -21.333313, y: -41}
+        - {x: 28.666687, y: -41}
+        - {x: 39.666687, y: -34}
+        - {x: 52.666687, y: -25}
+        - {x: 52.666687, y: 29}
+        - {x: 50.666687, y: 40}
+    - name: stand_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28.833374, y: 40}
+        - {x: -23.166626, y: 40}
+        - {x: -42.166626, y: 28}
+        - {x: -42.166626, y: -24}
+        - {x: -38.166626, y: -40}
+        - {x: 50.833374, y: -40}
+        - {x: 53.833374, y: -25}
+        - {x: 53.833374, y: 20}
+        - {x: 39.833374, y: 39}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
