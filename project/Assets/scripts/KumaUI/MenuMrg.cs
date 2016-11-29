@@ -38,7 +38,7 @@ public class MenuMrg : MenuManagerKumaBase
         //// PreLoad<Screen_Card_EditCity>();
         //// PreLoad<ScreenHandler_BattleUI>();
         //PreLoad<ScreenWaitingCover>();
-        //PreLoad<ScreenWaitingBoard>();
+        PreLoad<ScreenWaitingBoard>();
         //PreLoad<Screen2DDisableBoard>();
     }
 
@@ -62,11 +62,13 @@ public class MenuMrg : MenuManagerKumaBase
             return _resScreens[key];
         }
         if (_type.Equals(typeof(ScreenEntry)))
-            return Resources.Load("UIEntry") as GameObject;    
+            return Resources.Load("UIEntry") as GameObject;
 
-        if (_type.Equals(typeof(ScreenInitLoading)))
-            return Resources.Load("UIloading") as GameObject;       
+        if (_type.Equals(typeof(ScreenMainMenu)))
+            return Resources.Load("UIMainMenu") as GameObject;
 
+        if (_type.Equals(typeof(ScreenWaitingBoard)))
+            return Resources.Load("UIWaitingBoard") as GameObject;
         return null;
 
     }

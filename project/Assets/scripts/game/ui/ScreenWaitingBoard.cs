@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
-public class ScreenInitLoading : ScreenHandlerUI5
+public class ScreenWaitingBoard : ScreenHandlerUI5
 {
+
+	// Use this for initialization
     public override void Init()
     {
         base.Init();

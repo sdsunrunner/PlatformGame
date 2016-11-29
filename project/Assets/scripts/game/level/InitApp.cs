@@ -18,10 +18,10 @@ public class InitApp : MonoBehaviour
     private EState mPreState = EState.eNone;
 
     private float mStateTimer;
-    private const float WAIT_TIME_AND_START = 1.5f;
+    private const float WAIT_TIME_AND_START = 3.5f;
     private long mStartTime;
 
-    private ScreenInitLoading mLoadingHandler;
+    //private ScreenInitLoading mLoadingHandler;
 
     private AppFacade mCommandFacade = null;    
 	void Start () 
@@ -29,10 +29,10 @@ public class InitApp : MonoBehaviour
         Debug.LogError("start init app");
         state = EState.eRegisNotification;
 
-        GameObject ui_parent = GameObject.Find("UI");
-        MenuMrg.instance.SetTransform(ui_parent.transform);
-        mLoadingHandler = MenuMrg.instance.CreateMenu<ScreenInitLoading>();       
-        mLoadingHandler.ShowScreen();       
+        //GameObject ui_parent = GameObject.Find("UI");
+        //MenuMrg.instance.SetTransform(ui_parent.transform);
+        //mLoadingHandler = MenuMrg.instance.CreateMenu<ScreenInitLoading>();       
+        //mLoadingHandler.ShowScreen();       
 	}
     void Update()
     {
@@ -40,8 +40,8 @@ public class InitApp : MonoBehaviour
         {
             case EState.eStart:
                 mStateTimer += Time.deltaTime;
-                if (mStateTimer > WAIT_TIME_AND_START)
-                    state = EState.eGo;
+                //if (mStateTimer > WAIT_TIME_AND_START)
+                //    state = EState.eGo;
                 break;
         }
     }
@@ -96,7 +96,7 @@ public class InitApp : MonoBehaviour
     void InitGameSetting()
     {
         Debug.LogError("InitGameSetting");
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 45;
         Time.timeScale = 1.0f;
         mStartTime = GameTime.GetMilSecTime();
         state = EState.eInitTableConfig;
