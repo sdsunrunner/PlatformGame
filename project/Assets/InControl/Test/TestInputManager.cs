@@ -79,15 +79,15 @@ namespace InControl
 				Application.LoadLevel( "TestInputManager" );
 			}
 
-			#if UNITY_ANDROID && INCONTROL_OUYA && !UNITY_EDITOR
+            //#if UNITY_ANDROID && INCONTROL_OUYA && !UNITY_EDITOR
 			var inputDevice = InputManager.ActiveDevice;
 			Debug.Log( "[InControl] " + inputDevice.LeftStick.Vector );
 			var anyButton = inputDevice.AnyButton;
 			if (anyButton)
 			{
-				Debug.Log( "[InControl] AnyButton = " + anyButton.Handle );
+				Debug.LogError( "[InControl] AnyButton = " + anyButton.Handle );
 			}
-			#endif
+            //#endif
 		}
 
 

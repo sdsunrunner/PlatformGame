@@ -19,7 +19,8 @@ public class ScreenMainMenu : ScreenHandlerUI5
     void OnClickBtnPlay(PointerEventData eventData, UI_Event ev)
     {
         Debug.LogError("---OnClickBtnPlay-");
-
+        LevelManager.Instance.LoadLevelAsync(Level.GameLev_1);
+        Application.LoadLevel(LevelManager.Instance.GetLevelName(LevelManager.Instance.GetCurLevel()));
     }
 }
 

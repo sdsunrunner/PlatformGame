@@ -40,8 +40,8 @@ public class InitApp : MonoBehaviour
         {
             case EState.eStart:
                 mStateTimer += Time.deltaTime;
-                //if (mStateTimer > WAIT_TIME_AND_START)
-                //    state = EState.eGo;
+                if (mStateTimer > WAIT_TIME_AND_START)
+                    state = EState.eGo;
                 break;
         }
     }

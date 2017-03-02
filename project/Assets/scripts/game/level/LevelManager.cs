@@ -5,7 +5,8 @@ public enum Level
 {
     Entry = 0,
     AppInit,
-    Opening,  
+    Opening,
+    GameLev_1, 
     None,
 }
 public class LevelManager
@@ -54,7 +55,11 @@ public class LevelManager
                 break;
 
             case Level.Opening:
-                result = "opening";
+                result = "mainMenu";
+                break;
+
+            case Level.GameLev_1:
+                result = "game_lv_1";
                 break; 
         }
         return result;

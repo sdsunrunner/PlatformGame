@@ -14,41 +14,41 @@ public class RawTable
 {
     static List<ulong> s_hashTable;
 
-    static List<ulong> HashTable
-    {
-        get
-        {
-            if (s_hashTable == null)
-            {
-                s_hashTable = new List<ulong>();
-                TextAsset text = null;
-#if UNITY_EDITOR
-                //if (Constants.EDITOR_USE_ASSETBUNDLE)
-                //{
-                //    text = ResourceLibrary.instance.Load(AssetBundleManager.EBundleType.eDat, "hash") as TextAsset;
-                //}
-                //else
-                {
-                    text = (TextAsset)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Resources/dat/hash.txt", typeof(TextAsset));
-                }
-#else
-                text = ResourceLibrary.instance.Load(AssetBundleManager.EBundleType.eDat, "hash") as TextAsset;
-                if(text == null)
-                {
-                	text =  Resources.Load("dat1/hash", typeof(TextAsset)) as TextAsset;
-                }
-#endif
-                string[] hashList = text.text.Split(new char[] { '#' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string hash in hashList)
-                {
-                    ulong uint_hash = ulong.Parse(hash);
-                    s_hashTable.Add(~uint_hash);
-                }
+//    static List<ulong> HashTable
+//    {
+//        get
+//        {
+//            if (s_hashTable == null)
+//            {
+//                s_hashTable = new List<ulong>();
+//                TextAsset text = null;
+//#if UNITY_EDITOR
+//                //if (Constants.EDITOR_USE_ASSETBUNDLE)
+//                //{
+//                //    text = ResourceLibrary.instance.Load(AssetBundleManager.EBundleType.eDat, "hash") as TextAsset;
+//                //}
+//                //else
+//                {
+//                    text = (TextAsset)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Resources/dat/hash.txt", typeof(TextAsset));
+//                }
+//#else
+//                text = ResourceLibrary.instance.Load(AssetBundleManager.EBundleType.eDat, "hash") as TextAsset;
+//                if(text == null)
+//                {
+//                    text =  Resources.Load("dat1/hash", typeof(TextAsset)) as TextAsset;
+//                }
+//#endif
+//                string[] hashList = text.text.Split(new char[] { '#' }, StringSplitOptions.RemoveEmptyEntries);
+//                foreach (string hash in hashList)
+//                {
+//                    ulong uint_hash = ulong.Parse(hash);
+//                    s_hashTable.Add(~uint_hash);
+//                }
 
-            }
-            return s_hashTable;
-        }
-    }
+//            }
+//            return s_hashTable;
+//        }
+//    }
     public static ulong GetHash(int index)
     {
         return ~s_hashTable[index];
@@ -65,32 +65,34 @@ public class RawTable
 
         TextAsset binaryStream = null;
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         //if (Constants.EDITOR_USE_ASSETBUNDLE)
         //{
         //    binaryStream = ResourceLibrary.instance.Load(AssetBundleManager.EBundleType.eDat, tableName) as TextAsset;
         //}
         //else
         {
-            binaryStream = (TextAsset)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Resources/dat/" + tableName + ".bytes", typeof(TextAsset));
+
+
+            binaryStream = (TextAsset)Resources.Load("Assets/Resources/dat/" + tableName + ".bytes", typeof(TextAsset));
         }
-#else
-		binaryStream = ResourceLibrary.instance.Load(AssetBundleManager.EBundleType.eDat, tableName) as TextAsset;
-		if(binaryStream == null)
-		{
-			binaryStream =  Resources.Load("dat1/" + tableName, typeof(TextAsset)) as TextAsset;
-		}
-#endif
+//#else
+//        binaryStream = ResourceLibrary.instance.Load(AssetBundleManager.EBundleType.eDat, tableName) as TextAsset;
+//        if(binaryStream == null)
+//        {
+//            binaryStream =  Resources.Load("dat1/" + tableName, typeof(TextAsset)) as TextAsset;
+//        }
+//#endif
 
         if (binaryStream == null)
         {
             DebugUtils.Log("Error reading table:" + tableName);
             return;
         }
-        if (!HashTable.Contains(~ComputeHash(binaryStream.bytes)))
-        {
-            //if (Constants.CRASH_GAME_WHEN_HACKED) Application.Quit();
-        }
+        //if (!HashTable.Contains(~ComputeHash(binaryStream.bytes)))
+        //{
+        //    //if (Constants.CRASH_GAME_WHEN_HACKED) Application.Quit();
+        //}
 
         byte[] bytes = TEA.decode(binaryStream.bytes);
 
