@@ -1,6 +1,6 @@
 ﻿**********************************
 
- ADVANCED PLATFORMER 2D 
+ADVANCED PLATFORMER 2D (v1.7.2)
 (Copyright © 2014 UniPhys)
 
 Online website  : sites.google.com/site/advancedplatformer2d
@@ -19,6 +19,40 @@ And if you like this asset, please take time to write a small review on the asse
 **********
 CHANGELOG 
 **********
+Version 1.7.3 :
+- Add crouched walk
+
+Version 1.7.2 :
+- Updated to Unity 5.4.0f3 (fix collisions issues with left side)
+- Fix one waygroung issues with slope
+
+Version 1.7.1 :
+- Add input for down jump on OneWayGround
+- Add setting to disable crouch
+- Fix OneWayground not working for slopes (i.e ignore a oneground if penetrating too much with it until we go out of it)
+- Add Axis constraints for Input buttons (needed with multi inputs actions, for example for down jumping with Jump button + Vertical axis down at the same time)
+- Fix player scaling not supported when building rays
+- Add options for Camera (FaceLeadMode + NoBackward)
+- Add ExplodeOnTouch option on Bullet
+- Add API for launching an attack manually by script at any time
+- Fix uncrouch detection zone
+- Remove Apply Root Motion as this can break ground alignment
+- Update to Unity 5.1.1
+
+Version 1.7 :
+- Merge Melee Attack & Ranged Attack settings (allows to combine a melee with a ranged attack) 
+=> you need to reset your attack settings, please make a backup before upgrading 
+- Handle ground bounciness in APMaterial (allows to bounce when walking on specific ground)
+- Allows jump with Y vertical axis defined in Inputs settings
+- Ranged attack infinite ammo
+- Wall jump extra horizontal boost
+- Switch to Unity5.0 optimized version
+- Add Camera smooth clamp values update
+- Add Camera vertical parallax scrolling
+- Fix Crouch when boxcollider has offset
+- Fix potential crash when game is paused
+- Fix ground snap vertical teleport
+- Fix possible divisions per zero
 
 Version 1.6 :
 - Add Edge Grab feature

@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Advanced Platformer 2D/Samples/APSampleGUI")]
 
@@ -101,7 +102,7 @@ public class APSampleGUI : APCharacterEventListener
 
 			if(m_fadeAlpha >= 1f)
 			{
-				Application.LoadLevel(m_levelToLoad);
+                SceneManager.LoadScene(m_levelToLoad);
 			}
 		}
 	}

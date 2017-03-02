@@ -43,7 +43,9 @@ public partial class APCharacterController : MonoBehaviour
 		public float m_maxAirSpeed = 8f;						// max horizontal speed in air
 		public float m_maxFallSpeed = 20f;						// max fall speed
         public bool m_enableCrouch = true;                      // enable crouching or not
-		public float m_crouchSizePercent = 0.5f;				// collision box reduce size percent when crouched
+        public float m_crouchSpeed = 3f;                        // moving crouch speed
+        public float m_crouchSpeedBackward = 0f;                // speed when moving crouched backward (in m/s), same as m_crouchSpeed if zero
+        public float m_crouchSizePercent = 0.5f;				// collision box reduce size percent when crouched
 		public float m_uncrouchMinSpeed = 0f;					// used to get unstuck from a crouch
 		public bool m_enableCrouchedRotate = true;				// enable rotate while crouched
 		public eAutoMove m_autoMove = eAutoMove.Disabled;		// force player to always move in a direction
@@ -104,7 +106,9 @@ public partial class APCharacterController : MonoBehaviour
 		public string m_runBackward;
 		public string m_walk;
 		public string m_walkBackward;
-		public string m_crouch;
+        public string m_walkCrouch;
+        public string m_walkCrouchBackward;
+        public string m_crouch;
 		public string m_jump;
 		public string m_inAir;
 		public string m_inAirDown;

@@ -11,7 +11,7 @@ class APSettings
 	public static int m_versionMinor = 7;
 	
 	// addition version information
-	public static int m_versionInfo = 1;
+	public static int m_versionInfo = 3;
 
 	// physic calculations are done at FixedUpdate or Update
 	public static bool m_fixedUpdate = true;

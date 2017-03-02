@@ -1,21 +1,23 @@
 fileFormatVersion: 2
-guid: 26e95dd3e7df983439419d2f23c2809b
+guid: b9775d2b291af054b8a2ce5f33394920
+timeCreated: 1474489346
+licenseType: Store
 TextureImporter:
   fileIDToRecycleName:
-    21300000: shift_down_0
-    21300002: shift_down_1
-    21300004: shift_down_2
-    21300006: shift_down_3
-    21300008: shift_down_4
-    21300010: shift_down_5
-    21300012: shift_down_6
-    21300014: shift_down_7
-    21300016: shift_down_8
-    21300018: shift_down_9
+    21300000: walk_crouch_0
+    21300002: walk_crouch_1
+    21300004: walk_crouch_2
+    21300006: walk_crouch_3
+    21300008: walk_crouch_4
+    21300010: walk_crouch_5
+    21300012: walk_crouch_6
+    21300014: walk_crouch_7
+    21300016: walk_crouch_8
+    21300018: walk_crouch_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -35,10 +37,10 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 1024
+  maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -61,135 +63,135 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shift_down_0
+      name: walk_crouch_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 327
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 244
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_1
+      name: walk_crouch_1
       rect:
         serializedVersion: 2
-        x: 163
-        y: 327
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 169
+        y: 244
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_2
+      name: walk_crouch_2
       rect:
         serializedVersion: 2
-        x: 326
-        y: 327
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 338
+        y: 244
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_3
+      name: walk_crouch_3
       rect:
         serializedVersion: 2
-        x: 489
-        y: 327
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 507
+        y: 244
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_4
+      name: walk_crouch_4
       rect:
         serializedVersion: 2
-        x: 652
-        y: 327
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 676
+        y: 244
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_5
+      name: walk_crouch_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_6
+      name: walk_crouch_6
       rect:
         serializedVersion: 2
-        x: 163
+        x: 169
         y: 0
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_7
+      name: walk_crouch_7
       rect:
         serializedVersion: 2
-        x: 326
+        x: 338
         y: 0
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_8
+      name: walk_crouch_8
       rect:
         serializedVersion: 2
-        x: 489
+        x: 507
         y: 0
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: shift_down_9
+      name: walk_crouch_9
       rect:
         serializedVersion: 2
-        x: 652
+        x: 676
         y: 0
-        width: 163
-        height: 327
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 169
+        height: 244
+      alignment: 9
+      pivot: {x: 0.5, y: 0.73}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

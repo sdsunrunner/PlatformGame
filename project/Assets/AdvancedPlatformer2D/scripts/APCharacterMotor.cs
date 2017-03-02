@@ -462,13 +462,12 @@ public class APCharacterMotor : MonoBehaviour
 				// ignore insides (we don't know in which direction we should correct penetration)
 				if(hit.fraction == 0f)
 					continue;
-					
-				// ignore non opposite normals in local space
-				Vector2 localHitNormal = transform.InverseTransformDirection(hit.normal);
-				if((bDown && localHitNormal.y <= 0f) || (!bDown && localHitNormal.y >= 0f))
-					continue; 
-					
-				if(m_DrawRays)
+
+                // ignore non opposing normal against ray
+                if (Vector2.Dot(rayDir, hit.normal) > 0f)
+                    continue;
+
+                if (m_DrawRays)
 					Debug.DrawLine(hit.point, hit.point + hit.normal * 0.1f, Color.red);
 					
 				// keep hit with maximum penetration
@@ -675,9 +674,8 @@ public class APCharacterMotor : MonoBehaviour
 				if(hit.fraction == 0f)
 					continue;
 
-				// ignore non facing normals or in invalid slope range
-				Vector2 localHitNormal = transform.InverseTransformDirection(hit.normal);
-				if((bRayDirRight && localHitNormal.x > 0f) || (!bRayDirRight && localHitNormal.x < 0f))
+				// ignore non opposing normal against ray
+				if(Vector2.Dot(rayDir, hit.normal) > 0f)
 					continue;
 					
 				if(m_DrawRays)

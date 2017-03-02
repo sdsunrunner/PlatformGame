@@ -125,7 +125,7 @@ public partial class APCharacterController : MonoBehaviour
 	bool m_isInStand;
 	bool m_bForceDefer;
 
-	enum AnimId
+	public enum AnimId
 	{
 		empty = 0,
 		stand,
@@ -133,6 +133,9 @@ public partial class APCharacterController : MonoBehaviour
 		walkBackward,
 		run,
 		runBackward,
+        crouch,
+        walkCrouch,
+        walkCrouchBackward,
 		jump,
 		inair
 	}
@@ -579,7 +582,15 @@ public partial class APCharacterController : MonoBehaviour
 		    {
 			    // go back to last crouch frame if coming from attack
 			    State ePrevState = GetPreviousState();
-			    PlayAnim(m_animations.m_crouch, ePrevState == State.Attack ? 1f : 0f);
+
+				if (!string.IsNullOrEmpty(m_animations.m_crouch))
+				{
+					PlayAnim(m_animations.m_crouch, ePrevState == State.Attack ? 1f : 0f, AnimId.crouch);
+				}
+				else
+				{
+					PlayAnim(m_animations.m_walkCrouch, 0f, AnimId.walkCrouch);
+				}
 			    m_eventListeners.ForEach(e => e.OnCrouchStart());
 		    }
 		    break;
@@ -594,8 +605,13 @@ public partial class APCharacterController : MonoBehaviour
 
 			    if(m_basic.m_enableCrouchedRotate)
 				    HandleAutoRotate();
-		    }
+
+                // don't do anything if state is about to change
+                if (!IsNewStateRequested() && CanMoveCrouched())
+                    HandleStandardAnimation();
+            }
 		    break;
+
 		    case APFsmStateEvent.eLeave:
 		    {
                 // restore collision box
@@ -608,7 +624,11 @@ public partial class APCharacterController : MonoBehaviour
                 m_motor.Scale = Vector2.one;
                 m_motor.ScaleOffset = Vector2.zero;
 
-			    m_eventListeners.ForEach(e => e.OnCrouchEnd());
+                // restore animation speed
+                m_anim.speed = 1f;
+                m_curAnimId = AnimId.empty;
+
+                m_eventListeners.ForEach(e => e.OnCrouchEnd());
 		    }
 		    break;
 		}
@@ -1178,15 +1198,26 @@ public partial class APCharacterController : MonoBehaviour
 
     public float ComputeMaxGroundSpeed()
     {
-        if (GetInputRunning())
+        float fSpeed = m_basic.m_walkSpeed;
+        float fSpeedBackward = m_basic.m_walkSpeedBackward;
+        if (IsCrouched())
         {
-            return (!m_basic.m_autoRotate && IsMovingBackward() && m_basic.m_runSpeedBackward > 0f) ? m_basic.m_runSpeedBackward : m_basic.m_runSpeed;
+            fSpeed = m_basic.m_crouchSpeed;
+            fSpeedBackward = m_basic.m_crouchSpeedBackward;
         }
-        else
+        else if (GetInputRunning())
         {
-            return (!m_basic.m_autoRotate && IsMovingBackward() && m_basic.m_walkSpeedBackward > 0f) ? m_basic.m_walkSpeedBackward : m_basic.m_walkSpeed;
+            fSpeed = m_basic.m_runSpeed;
+            fSpeedBackward = m_basic.m_runSpeedBackward;
         }
+
+        return (!m_basic.m_autoRotate && IsMovingBackward() && fSpeedBackward > 0f) ? fSpeedBackward : fSpeed;
     }
+
+	bool CanMoveCrouched()
+	{
+		return !string.IsNullOrEmpty(m_animations.m_walkCrouch) && m_basic.m_crouchSpeed > 0f;
+	}
 
 	void HandleHorizontalMove()
 	{		
@@ -1194,6 +1225,8 @@ public partial class APCharacterController : MonoBehaviour
 
 		float maxSpeed = ComputeMaxSpeed();
 		float absAxisX = Mathf.Abs(m_inputs.m_axisX.GetValue());
+		bool bCrouched = IsCrouched();
+		bool bCanMove = (bCrouched && CanMoveCrouched()) || GetState() == State.Standard;
 
 		// compute horizontal velocity from input
 		float fMoveDir = m_inputs.m_axisX.GetValue() != 0f ? Mathf.Sign(m_inputs.m_axisX.GetValue()) : (m_motor.FaceRight ? 1f : -1f);
@@ -1207,7 +1240,7 @@ public partial class APCharacterController : MonoBehaviour
             m_fGroundAngleSigned = fMoveDir != Mathf.Sign(m_motor.GetGroundNormal().x) ? fGroundAngle : -fGroundAngle;
 
 			// handle auto down slide here
-			if (m_downSlopeSliding.m_enabled && (GetState() == State.Standard) && (absAxisX == 0f) && (fGroundAngle >= m_downSlopeSliding.m_slopeMinAngle))
+			if (m_downSlopeSliding.m_enabled && bCanMove && (absAxisX == 0f) && (fGroundAngle >= m_downSlopeSliding.m_slopeMinAngle))
 			{
 				// - force player to slide down
 				fMoveDir = Mathf.Sign(m_motor.GetGroundNormal().x);
@@ -1225,7 +1258,7 @@ public partial class APCharacterController : MonoBehaviour
 		}
 
 		// add edge slide velocity if needed
-		if(m_onGround && (GetState() == State.Standard) && !downSlide && (m_basic.m_edgeSlideFactor > absAxisX))
+		if (m_onGround && bCanMove && !downSlide && (m_basic.m_edgeSlideFactor > absAxisX))
 		{
 			float fPushDir = HandleEdgeSlide();
 			if(fPushDir != 0f && fPushDir == fMoveDir)
@@ -1239,8 +1272,7 @@ public partial class APCharacterController : MonoBehaviour
 		Vector2 hrzMoveDir = new Vector2(fMoveDir, 0f);		
 		float hrzMoveLength = absAxisX * maxSpeed * m_speedFactor;
 
-		// align this velocity on ground plane if we touch the ground 
-		bool bCrouched = IsCrouched();
+		// align this velocity on ground plane if we touch the ground 		
 		bool bAttacking = IsAttackingStopped();
 		if (m_onGround)
 		{
@@ -1253,7 +1285,7 @@ public partial class APCharacterController : MonoBehaviour
 			}
 
 			// cancel input if needed
-			if (!downSlide && (bCrouched || bAttacking))
+			if (!downSlide && (bCrouched && !CanMoveCrouched() || bAttacking))
 			{
 				hrzMoveLength = 0f;
 			}
@@ -1270,7 +1302,7 @@ public partial class APCharacterController : MonoBehaviour
 			ComputeFrictions(out fDynFriction, out fStaticFriction);
 
 			// update sliding status
-			bool bDynSliding = !bCrouched && !bAttacking && absAxisX > 0f;
+			bool bDynSliding = !(bCrouched && !CanMoveCrouched()) && !bAttacking && absAxisX > 0f;
 			if ((bDynSliding && fDynFriction < 1f) || (!bDynSliding && fStaticFriction < 1f))
 			{
 				m_sliding = true;
@@ -1558,8 +1590,8 @@ public partial class APCharacterController : MonoBehaviour
 			}
 
 			// launch jump animation (use inair if empty)
-			PlayAnim(string.IsNullOrEmpty(m_animations.m_jump) ? m_animations.m_inAir : m_animations.m_jump, 0f);
-			m_curAnimId = AnimId.jump;
+			bool bInAirAnim = string.IsNullOrEmpty(m_animations.m_jump);
+			PlayAnim(bInAirAnim ? m_animations.m_inAir : m_animations.m_jump, 0f, bInAirAnim ? AnimId.inair : AnimId.jump);
 
 			// make sure to go back to Standard state
 			LeaveAnyState();
@@ -1768,7 +1800,7 @@ public partial class APCharacterController : MonoBehaviour
 	void HandleCrouch()
 	{
 		// Do not change state if currently switching or no crouch animation
-		if(IsNewStateRequested() || string.IsNullOrEmpty(m_animations.m_crouch))
+		if(IsNewStateRequested() || (string.IsNullOrEmpty(m_animations.m_crouch) && string.IsNullOrEmpty(m_animations.m_walkCrouch)))
 		   return;
 
 		m_needUncrouch = false;
@@ -2089,6 +2121,7 @@ public partial class APCharacterController : MonoBehaviour
 
 	void HandleStandardAnimation()
 	{
+        bool bIsCrouched = IsCrouched();
         m_isInStand = false;
 
 		if (m_onGround || m_animAirTime < m_animations.m_minAirTime)
@@ -2103,49 +2136,35 @@ public partial class APCharacterController : MonoBehaviour
 				float fSpeed = m_animations.m_animFromInput.Evaluate(fFilteredInput);
 				if (fSpeed < 1e-3f || bStopOnWall)
 				{
-					if(m_curAnimId != AnimId.stand)
+                    if (bIsCrouched)
+                    {
+						// Stop speed only if walk crouch is playing
+						if (m_curAnimId == AnimId.walkCrouch)
+						{
+							m_anim.speed = 0f;
+						}
+                    }
+					else
 					{
-						m_curAnimId = AnimId.stand;
-
-						m_anim.speed = 1f;
-						PlayAnim(m_animations.m_stand);
-					}	
-					m_isInStand = true;
+						m_isInStand = true;
+						PlayAnim(m_animations.m_stand, AnimId.stand);
+						m_anim.speed = 1f;						
+					}					
 				}
 				else
-				{		
+				{
 					bool bShouldRun = GetInputRunning();
-					if(bShouldRun)
+                    if (bIsCrouched)
+                    {
+                        UpdateStandardAnim(AnimId.walkCrouch, m_animations.m_walkCrouch, AnimId.walkCrouchBackward, m_animations.m_walkCrouchBackward);
+                    }
+					else if(bShouldRun)
 					{
-						if(!m_basic.m_autoRotate && IsMovingBackward())
-						{
-							if(m_curAnimId != AnimId.runBackward)
-							{
-								PlayAnim(m_animations.m_runBackward);
-								m_curAnimId = AnimId.runBackward;
-							}
-						}
-						else if(m_curAnimId != AnimId.run)
-						{
-							PlayAnim(m_animations.m_run);
-							m_curAnimId = AnimId.run;
-						}
+                        UpdateStandardAnim(AnimId.run, m_animations.m_run, AnimId.runBackward, m_animations.m_runBackward);
 					}
-					else if(!bShouldRun)
+					else
 					{
-						if(!m_basic.m_autoRotate && IsMovingBackward())
-						{
-							if(m_curAnimId != AnimId.walkBackward)
-							{
-								PlayAnim(m_animations.m_walkBackward);
-								m_curAnimId = AnimId.walkBackward;
-							}
-						}
-						else if(m_curAnimId != AnimId.walk)
-						{
-							PlayAnim(m_animations.m_walk);
-							m_curAnimId = AnimId.walk;
-						}
+                        UpdateStandardAnim(AnimId.walk, m_animations.m_walk, AnimId.walkBackward, m_animations.m_walkBackward);
 					}
 
 					m_anim.speed = Mathf.Abs(fSpeed); 
@@ -2160,27 +2179,35 @@ public partial class APCharacterController : MonoBehaviour
 				float fSpeedFromGround = m_animations.m_animFromSpeed.Evaluate(fGroundSpeed);
 				if (bStopOnWall || (fSpeedFromInput < 1e-3f && m_sliding) || (!m_sliding && fSpeedFromGround < 1e-3f && m_inputs.m_axisX.GetValue() == 0f))
 				{
-					if(m_curAnimId != AnimId.stand)
+                    if (bIsCrouched)
+                    {
+						// Stop speed only if walk crouch is playing
+						if (m_curAnimId == AnimId.walkCrouch)
+						{
+							m_anim.speed = 0f;
+						}
+                    }
+                    else
 					{
-						m_curAnimId = AnimId.stand;
-
-						m_anim.speed = 1f;
-						PlayAnim(m_animations.m_stand);
-					}
-					m_isInStand = true;
+						m_isInStand = true;
+						PlayAnim(m_animations.m_stand, AnimId.stand);
+						m_anim.speed = 1f;						
+					}					
 				}
 				else
 				{
 					bool bShouldRun = GetInputRunning();
-					if(bShouldRun && (m_curAnimId != AnimId.run))
+                    if (bIsCrouched)
+                    {
+                        PlayAnim(m_animations.m_walkCrouch, AnimId.walkCrouch);
+                    }
+                    else if(bShouldRun)
 					{
-						PlayAnim(m_animations.m_run);
-						m_curAnimId = AnimId.run;
+						PlayAnim(m_animations.m_run, AnimId.run);
 					}
-					else if(!bShouldRun && (m_curAnimId != AnimId.walk))
+					else
 					{
-						PlayAnim(m_animations.m_walk);
-						m_curAnimId = AnimId.walk;
+						PlayAnim(m_animations.m_walk, AnimId.walk);
 					}
 
 					float fSpeed = 0f;
@@ -2199,25 +2226,44 @@ public partial class APCharacterController : MonoBehaviour
 		}
 		else if((m_curAnimId != AnimId.jump) && (m_curAnimId != AnimId.inair))
 		{
-			PlayAnim(m_animations.m_inAir, 0f);
+			PlayAnim(m_animations.m_inAir, 0f, AnimId.inair);
 			m_anim.speed = 1f;
-			m_curAnimId = AnimId.inair;
 		}
 	}
 
-	public void PlayAnim(string sAnim)
+    private void UpdateStandardAnim(AnimId forwardId, string forwardAnim, AnimId backwardId, string backwardAnim)
+    {
+        if (!m_basic.m_autoRotate && IsMovingBackward())
+        {
+            PlayAnim(backwardAnim, backwardId);
+        }
+        else
+        {
+            PlayAnim(forwardAnim, forwardId);
+        }
+    }
+
+	public void PlayAnim(string sAnim, AnimId animId = AnimId.empty)
 	{
 		if (!string.IsNullOrEmpty(sAnim))
 		{
-			m_anim.Play(sAnim);
+			if (animId == AnimId.empty || m_curAnimId != animId)
+			{
+				m_anim.Play(sAnim);
+				m_curAnimId = animId;
+			}			
 		}
 	}
 
-	public void PlayAnim(string sAnim, float fNormalizedTime)
+	public void PlayAnim(string sAnim, float fNormalizedTime, AnimId animId = AnimId.empty)
 	{
 		if (!string.IsNullOrEmpty(sAnim))
 		{
-			m_anim.Play(sAnim, 0, fNormalizedTime);
+			if (animId == AnimId.empty || m_curAnimId != animId)
+			{
+				m_anim.Play(sAnim, 0, fNormalizedTime);
+				m_curAnimId = animId;
+			}
 		}
 	}
 	public void PlayAnim(int iAnimHash)
@@ -2225,6 +2271,7 @@ public partial class APCharacterController : MonoBehaviour
 		if (iAnimHash != 0)
 		{
 			m_anim.Play(iAnimHash);
+			m_curAnimId = AnimId.empty;
 		}
 	}
 
@@ -2234,6 +2281,7 @@ public partial class APCharacterController : MonoBehaviour
 		if (iAnimHash != 0)
 		{
 			m_anim.Play(iAnimHash, 0, fNormalizedTime);
+			m_curAnimId = AnimId.empty;
 		}
 	}
 

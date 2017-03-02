@@ -50,11 +50,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: shift_down_loop_0
+    - serializedVersion: 2
+      name: shift_down_loop_0
       rect:
         serializedVersion: 2
         x: 0
@@ -64,20 +67,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 62, y: 18}
-        - {x: 52, y: 67}
-        - {x: 62, y: 118}
-        - {x: 62, y: 141}
-        - {x: 23, y: 165}
-        - {x: -62, y: 165}
-        - {x: -62, y: -130}
-        - {x: -23, y: -169}
-        - {x: 28, y: -169}
-        - {x: 32, y: -159}
-        - {x: 31, y: -134}
-        - {x: 62, y: -5}
-    - name: shift_down_loop_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shift_down_loop_1
       rect:
         serializedVersion: 2
         x: 124
@@ -87,20 +80,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 19, y: 161}
-        - {x: -14, y: 156}
-        - {x: -20, y: 143}
-        - {x: -22, y: 161}
-        - {x: -28, y: 164}
-        - {x: -60, y: 164}
-        - {x: -62, y: 163}
-        - {x: -62, y: -168}
-        - {x: 34, y: -168}
-        - {x: 62, y: -34}
-        - {x: 62, y: 106}
-        - {x: 59, y: 138}
-    - name: shift_down_loop_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shift_down_loop_2
       rect:
         serializedVersion: 2
         x: 248
@@ -110,15 +93,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -61, y: 163}
-        - {x: -61, y: -53}
-        - {x: -46, y: -49}
-        - {x: -19, y: -166}
-        - {x: 51, y: -166}
-        - {x: 62, y: -90}
-        - {x: 62, y: 163}
-    - name: shift_down_loop_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shift_down_loop_3
       rect:
         serializedVersion: 2
         x: 372
@@ -128,21 +106,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -54, y: 163}
-        - {x: -60, y: 158}
-        - {x: -60, y: 104}
-        - {x: -44, y: 79}
-        - {x: -60, y: -26}
-        - {x: -60, y: -42}
-        - {x: -47, y: -49}
-        - {x: -16, y: -156}
-        - {x: -4, y: -164}
-        - {x: 41, y: -164}
-        - {x: 62, y: -59}
-        - {x: 62, y: 153}
-        - {x: 48, y: 163}
-    - name: shift_down_loop_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shift_down_loop_4
       rect:
         serializedVersion: 2
         x: 496
@@ -152,15 +119,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -61, y: 163}
-        - {x: -61, y: -53}
-        - {x: -46, y: -49}
-        - {x: -19, y: -166}
-        - {x: 51, y: -166}
-        - {x: 62, y: -90}
-        - {x: 62, y: 163}
-    - name: shift_down_loop_5
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shift_down_loop_5
       rect:
         serializedVersion: 2
         x: 620
@@ -170,19 +132,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 19, y: 161}
-        - {x: -14, y: 156}
-        - {x: -20, y: 143}
-        - {x: -22, y: 161}
-        - {x: -28, y: 164}
-        - {x: -60, y: 164}
-        - {x: -62, y: 163}
-        - {x: -62, y: -168}
-        - {x: 34, y: -168}
-        - {x: 62, y: -34}
-        - {x: 62, y: 106}
-        - {x: 59, y: 138}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

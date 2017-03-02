@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(APCharacterController))]
 [AddComponentMenu("Advanced Platformer 2D/Samples/APSamplePlayer")]
@@ -188,8 +189,8 @@ public class APSamplePlayer : MonoBehaviour
 
 		// launch fade to black
 		if(m_gui)
-		{
-			m_gui.LoadLevel(Application.loadedLevelName);
+		{           
+            m_gui.LoadLevel(SceneManager.GetActiveScene().name);
 		}
 
 		// remove player
